@@ -1,0 +1,25 @@
+<section class="p-3">
+        <div class="container mt-5" style=" flex;justify-content:center;align-items-center">
+            <div class="row " style="display: flex;justify-content:center;align-items-center" >
+
+                <div class="col-md-3 " style="display: flex;justify-content:center;align-items-center;">
+                    <div class="card  " style="width:700px;height:350px" >
+                        <img class="card-img-top img-thumbnail rounded mx-auto d-block" style="width: 220px;height:220px;"
+                            src="/images/product-images/{{product.Image}}"
+                            alt="Card image cap">
+                        <div class="card-body text-center" >
+                            <h5 class="card-title mt-2">{{product.Name}}</h5>
+                            <h6 class="card-text mt-3">Price: {{product.Price}} \-</h6>
+                            <h6 class="card-text mt-3">Quantity: {{product.Quantity}}</h6>
+                            {{!-- <a href="/add-to-cart/{{this.ID}}" class="btn btn-primary">Add to cart</a> --}}
+                           {{!-- // <button onclick="addCart({{this.ID}})" class="btn btn-primary">Add to Cart</button> --}}
+                        </div>
+                    </div>
+                </div>
+
+            
+            </div>
+
+
+        </div>
+    </section>

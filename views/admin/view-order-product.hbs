@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row mt-4 mb-4">
+    <a class="btn btn-success ml-auto" href="/admin/add-product">Add products</a>
+  </div>
+{{#if product}}
+  <table class="table mt-5" id="protable">
+    <thead>
+      <tr>
+
+        <th scope="col">Title</th>
+        <th scope="col">Color</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+
+        <td>{{product.Name}}</td>
+        <td>{{product.Color}}</td>
+        <td>{{product.Price}}</td>
+        <td><img
+            src="/images/product-images/{{product.Image}}"
+            style="width: 50px;height:50px"
+          /></td>
+      </tr>
+
+    </tbody>
+  </table>
+{{else}}
+  <table class="table mt-5" id="protable">
+    <thead>
+      <tr>
+
+        <th scope="col">Title</th>
+        <th scope="col">Color</th>
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+
+    
+
+    </tbody>
+  </table>
+   
+  {{/if}}
+</div>
+
+<script>
+  $(function(){
+    $('#protable').DataTable()
+  })
+
+  
+</script>

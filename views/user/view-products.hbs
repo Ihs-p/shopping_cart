@@ -1,0 +1,51 @@
+
+
+    <section class="">
+        <div class="container mt-5 " >
+            <div class="row ">
+                {{#each products}}
+                <div class="col-md-3 text-center " style="display: flex;justify-content:center;align-items-center">
+                    <div class="card  rounded mt-3 " style="width: 23rem;" >
+                        <img class="card-img-top  rounded mx-auto  " style="width: 120px;height:120px"
+                            src="/images/product-images/{{this.Image}}"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5 class="card-title">{{this.Name}}</h5>
+                            <p class="card-text">{{this.Color}}</p>
+                            <p class="card-text">{{this.Price}}/.</p>
+                            {{!-- <a href="/add-to-cart/{{this.ID}}" class="btn btn-primary">Add to cart</a> --}}
+                            <button onclick="addCart({{this.ID}})" class="btn btn-primary">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                {{/each}}
+            </div>
+
+
+        </div>
+    </section>
+
+    <script>
+        
+
+
+function addCart(proId){
+    
+    $.ajax({
+        url:'/add-to-cart/'+proId,
+        method:'get',
+        success:(Response)=>{
+            if(Response.status){
+location.reload()
+                let count = $('#cart-count').html()
+                count = parseInt(count)+1
+                $('#cart-count').html(count)
+            
+            }
+        }
+    })
+}
+
+
+    </script>

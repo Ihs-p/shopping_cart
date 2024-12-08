@@ -1,0 +1,37 @@
+
+<div class="container">
+    
+    <div class="row justify-content-center mt-3">
+           <h2 class="">Orders</h2>
+    </div> 
+   
+    
+   
+    <table class="table mt-4">
+  <thead>
+    <tr>
+      <th scope="col">Date</th>
+      <th scope="col">Address</th>
+      <th scope="col">Pincode</th>
+      <th scope="col">Mobile</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Payment</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each orders}}
+    <tr>
+      <td scope="row">{{this.Date}}</td>
+      <td>{{this.Address}}</td>
+      <td>{{this.Pincode}}</td>
+      <td>{{this.Mobile}}</td>
+      <td>{{this.TotalAmount}}</td>
+      <td>{{this.PaymentMethod}}</td>
+      <td>{{this.Status}}</td>
+      <td><a href="/view-order-product/{{this.OrderID}}" class="btn btn-primary"  >View Products</a></td>
+    </tr>
+   {{/each}} 
+  </tbody>
+</table>
+</div>

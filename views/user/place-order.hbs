@@ -1,0 +1,59 @@
+<div class="container">
+   <div class="row justify-content-center mt-3">
+           <h2 class="">Enter Delivery Deteils</h2>
+    </div> 
+ 
+    
+    <form class="form mt-3" id="checkout-form"> 
+       <div class="row"></div>
+      <div class="col-md-6" mt-3>
+
+        <label for="">Name</label>
+        <input class="form-control"  type="text" placeholder="Name" name="Name"> 
+        <label for="">Address</label>
+        <input class="form-control" type="text" name="Address" placeholder="Address">
+        <label for="">pin code</label>
+        <input class="form-control" type="text" name="Pincode" placeholder="pin code ">
+         <label for="">mobile</label>
+        <input class="form-control" type="text" name="Mobile" placeholder="mobile ">
+        <input type="text" name="User" value="{{user}}" hidden >
+
+      </div>
+
+      <div class="col-md-4 mt-3">
+        <div class="container">
+          <h5>Total Amount : <span>{{totalAmount}}</span></h5>
+          <hr>
+          <div class="payment">
+            <P>Payment method:</P>
+            <label for="payment-method" class="radio-inline form-control">
+              <input type="radio" name="payment-method" id="" value="COD" > COD
+            </label>
+            <label for="payment-method" class="form-control">
+               <input type="radio" name="payment-method" id="" value="Online"> Online payment
+            </label class="radio-inline">
+            <button class="btn btn-success mt-3" type="submit">Check Out</button>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  $('#checkout-form').submit((e)=>{
+    e.preventDefault()
+    $.ajax({
+      url:'/place-order',
+      method:'post',
+      data:$('#checkout-form').serialize(),
+      success:(resposnse)=>{
+        if(resposnse.status)
+         alert("order placed")
+         location.href='/order-success'
+        
+      }
+    })
+  })
+</script>

@@ -1,0 +1,46 @@
+<div class="container">
+
+  <div class="row justify-content-center mt-3">
+    <h2 class="">Orders</h2>
+  </div>
+{{#if admin}}
+  <table class="table mt-4" id="ordersTable">
+    <thead>
+      <tr>
+        <th>item</th>
+        <th>Quantity</th>
+        <th>Name</th>
+        <th>Mobile</th>
+        <th>Pincode</th>
+        <th>Amount</th>
+        <th>Payment</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each orders}}
+        <tr>
+          <td>{{this.productName}}</td>
+          <td>{{this.Quantity}}</td>
+          <td>{{this.Name}}</td>
+          <td>{{this.Mobile}}</td>
+          <td>{{this.Pincode}}</td>
+          <td>{{this.TotalAmount}}</td>
+          <td>{{this.PaymentMethod}}</td>
+          <td>{{this.Status}}</td>
+          <td><a
+              href="/admin/view-order-product/{{this.ProductID}}"
+              class="btn btn-primary"
+            >View Product</a></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{/if}}
+</div>
+
+<script>
+  $(function(){
+    $('#ordersTable').DataTable()
+  })
+</script>
